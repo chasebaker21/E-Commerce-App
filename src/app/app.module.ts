@@ -48,8 +48,8 @@ import { ProductService } from './product.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
-    FormsModule,
-  ],
+    FormsModule
+    ],
   providers: [
     AuthService,
     AuthGuard,
