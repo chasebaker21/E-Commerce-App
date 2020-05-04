@@ -19,6 +19,7 @@ export class ProductService {
       .map(a => {
         const key = a.payload.key;
         const data = a.payload.val();
+        console.log(key, data)
           return  {key, data};
       })));
   }
@@ -30,6 +31,10 @@ export class ProductService {
 
   update(productId, product) {
     return this.database.object('/products/' + productId).update(product); 
+  }
+
+  delete(productId) {
+    return this.database.object('/products/' + productId).remove();
   }
 }
 

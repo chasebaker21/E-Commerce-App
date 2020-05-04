@@ -5,6 +5,11 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire'
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatTableModule }  from '@angular/material/table';
+import { DataTablesModule } from 'angular-datatables';
+import {TableModule} from 'primeng/table';
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,7 +53,10 @@ import { ProductService } from './product.service';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    DataTablesModule,
+    TableModule
     ],
   providers: [
     AuthService,

@@ -2,7 +2,33 @@
     <a [routerLink]="['/admin/products/new']" routerLinkActive="router-link-active"  class="btn btn-primary">
     New Product</a>
 </p>
-<table class="table">
+<p>
+    <input 
+    #query
+    (keyup)="filter(query.value)"
+    type="text" class="form-control" placeholder="Search...">
+</p>
+
+
+<p-table [value]="filteredProducts">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-p>
+        <tr>
+            <td>{{ p.data.title }}</td>
+            <td>{{ p.data.price }}</td>
+            <td> <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active">Edit</a>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<!-- <table class="table">
     <thead>
         <tr>
             <th>Title</th>
@@ -11,7 +37,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let p of products$ | async">
+        <tr *ngFor="let p of filteredProducts">
             <td>{{ p.data.title }}</td>
             <td>{{ p.data.price }}</td>
             <td>
@@ -19,4 +45,4 @@
             </td>
         </tr>
     </tbody>
-</table>
+</table> -->
